@@ -10,8 +10,8 @@ Next versions will include encrypted keys and an option to remove the USB disk d
 
 # Overview
 
-This is a work in progress, feel free to ask and request more info.
-[Twitter @Angainor15](https://twitter.com/Angainor15)
+This is a work in progress, feel free to ask and request more info.  
+[Twitter @Angainor15](https://twitter.com/Angainor15)  
 [Discord](https://discord.gg/gy9xpuQK8A)
 
 
