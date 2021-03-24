@@ -15,19 +15,21 @@ This is a work in progress, feel free to ask and request more info.
 [Discord](https://discord.gg/gy9xpuQK8A)
 
 
-## keypad mapping
+## keypad mapping
 
 The mapping is a regular keypad instead of the Pimoroni default's one.
 
+|||||  
+|---|---|---|---|  
 | 7 | 8 | 9 | L |  
 | 4 | 5 | 6 | + |  
 | 1 | 2 | 3 | - |  
 | P | 0 | N | E |
 
-L = Sleep/Lock
-E = Enter
-P = Previous Page
-N = Next Page
+L = Sleep/Lock  
+E = Enter  
+P = Previous Page  
+N = Next Page  
 
 # Hardware
 
@@ -81,7 +83,7 @@ Just copy the python files from the "src/" folder on your CIRCUITPY usb drive.
 *Note:* Nothing is "clean" yet. It's a working but proof of concept code, iterated from several attempts and migration from MP to CP and libraries changes.  
 This will be improved over time.  
 
-## Time config
+## Time config
 
 The RTC module needs to be setup once.  
 This will eventually be done via the GUI, but in the mean time you can do it manually from the Python repl:
