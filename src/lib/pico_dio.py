@@ -4,7 +4,10 @@ import busio
 import terminalio
 from adafruit_display_text import label
 # from adafruit_display_shapes import rect
-from adafruit_progressbar import ProgressBar
+from adafruit_progressbar.horizontalprogressbar import (
+    HorizontalProgressBar,
+    HorizontalFillDirection,
+)
 from adafruit_st7789 import ST7789
 
 
@@ -32,8 +35,8 @@ def get_display():
 
 
 def get_splash():
-    splash = displayio.Group(max_size=10)
-    text_group2 = displayio.Group(max_size=10, scale=3, x=40, y=20)
+    splash = displayio.Group()
+    text_group2 = displayio.Group(scale=3, x=40, y=20)
     text2 = "Picoth"
     text_area2 = label.Label(terminalio.FONT, text=text2, color=0x00FF00)
     text_group2.append(text_area2)
@@ -43,15 +46,15 @@ def get_splash():
 
 # OTP screen
 def get_otp_group():
-    otp_group = displayio.Group(max_size=10, scale=1, x=0, y=0)
+    otp_group = displayio.Group(scale=1, x=0, y=0)
     # OTP Code
-    text_group1 = displayio.Group(max_size=10, scale=6, x=15, y=100)
+    text_group1 = displayio.Group(scale=6, x=15, y=100)
     text1 = "999999"
     text_area1 = label.Label(terminalio.FONT, text=text1, color=0x00FF00)
     text_group1.append(text_area1)  # Subgroup for text scaling
     otp_group.append(text_group1)
     # OTP label
-    text_group2 = displayio.Group(max_size=10, scale=3, x=40, y=20)
+    text_group2 = displayio.Group(scale=3, x=40, y=20)
     text2 = "OTP Label"
     text_area2 = label.Label(terminalio.FONT, text=text2, color=0xFF0000)
     text_group2.append(text_area2)
@@ -65,25 +68,31 @@ def get_otp_group():
     rect2 = rect.Rect(0, 70, 120, 4, fill=0x00fa00)
     otp_group.append(rect2)
     """
-    progress = ProgressBar(0, 60, 240, 9, bar_color=0x00fa00, outline_color=0x1e1e1e)
+    progress = HorizontalProgressBar(
+        (0, 60),
+        (249, 9),
+        outline_color=0x1e1e1e,
+        bar_color=0x00fa00,
+        direction=HorizontalFillDirection.LEFT_TO_RIGHT,
+    )
     otp_group.append(progress)
     return otp_group, text_area1, text_area2, progress
 
 
 def get_page_group():
-    page_group = displayio.Group(max_size=10, scale=1, x=0, y=0)
+    page_group = displayio.Group(scale=1, x=0, y=0)
     # Mode
-    text_group1 = displayio.Group(max_size=10, scale=4, x=5, y=20)
+    text_group1 = displayio.Group(scale=4, x=5, y=20)
     text_area1 = label.Label(terminalio.FONT, text="xx", color=0x00FF00)
     text_group1.append(text_area1)  # Subgroup for text scaling
     page_group.append(text_group1)
     # Page number
-    text_group2 = displayio.Group(max_size=10, scale=3, x=70, y=70)
+    text_group2 = displayio.Group(scale=3, x=70, y=70)
     text_area2 = label.Label(terminalio.FONT, text="Page X", color=0xFF0000)
     text_group2.append(text_area2)  # Subgroup for text scaling
     page_group.append(text_group2)
     # Label
-    text_group3 = displayio.Group(max_size=10, scale=3, x=10, y=110)
+    text_group3 = displayio.Group(scale=3, x=10, y=110)
     text_area3 = label.Label(terminalio.FONT, text="Label", color=0xFF0000)
     text_group3.append(text_area3)
     page_group.append(text_group3)
